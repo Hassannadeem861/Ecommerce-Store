@@ -1,0 +1,59 @@
+/* Example styles for Home.css */
+.home-container {
+  padding: 20px;
+}
+
+.hero-section {
+  background-color: #f8f8f8;
+  padding: 40px;
+  text-align: center;
+}
+
+.cta-button {
+  background-color: #ff5722;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.featured-products {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.product-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.testimonials-section {
+  margin-top: 40px;
+}
+
+.testimonial {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.testimonial img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  /* border-radius: 50%; */
+  margin-bottom: 10px;
+}
+
+.testimonial span {
+  font-style: italic;
+}

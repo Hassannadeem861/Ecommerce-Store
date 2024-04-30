@@ -1,0 +1,21 @@
+/* Page Not Found Container */
+.page-not-found-container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px; /* Adjust width as per your design */
+    padding: 110px;
+  }
+  
+  /* Page Not Found Title */
+  .page-not-found-container h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  /* Page Not Found Text */
+  .page-not-found-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
