@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import "./Login.css"; // Import CSS file for form styling
-import Layout from "../../Components/Layout/Layout.jsx";
+// import Layout from "../../Components/Layout/Layout.jsx";
+import { useAuth } from "../../Components/Context-Api/Auth.jsx";
 
 const InputField = ({ label, type, name, value, onChange }) => (
   <div className="form-group">
@@ -23,6 +24,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+
+  const [auth, setAuth] = useAuth();
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -50,6 +53,12 @@ const Register = () => {
 
       if (response.data) {
         toast.success(response?.data.message);
+        setAuth({
+          ...auth,
+          user: response.data.user,
+          token: response.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(response.data));
         navigate("/");
       } else {
         toast.error(response?.data?.message);

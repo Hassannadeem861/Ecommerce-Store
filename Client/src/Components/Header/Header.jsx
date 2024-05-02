@@ -3,8 +3,22 @@ import { Link } from "react-router-dom";
 import "./Header.css"; // Separate CSS file for additional styling
 import { FaShoppingCart } from "react-icons/fa";
 // import Layout from "../Layout/Layout.jsx";
+import { toast } from "react-toastify";
+import { useAuth } from "../Context-Api/Auth.jsx";
 
 const Header = () => {
+  const [auth, setAuth] = useAuth();
+
+  const handleLogout = async () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout Successfully");
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,16 +38,28 @@ const Header = () => {
                   Catergory
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
+              {auth.user ? (
+                <>
+                  <li onClick={handleLogout} className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/register">
+                      Register
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
                   Cart(0)

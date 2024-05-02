@@ -1,15 +1,30 @@
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import App from "./App.jsx";
+// import "./index.css";
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+// import AuthProvider from "./Components/Context-Api/Auth.jsx";
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <AuthProvider>
+//     <App />
+//     <ToastContainer position="top-right" autoClose={2000} />
+//   </AuthProvider>
+// );
+
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import "./index.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import AuthProvider from "./Components/Context Api/Auth.jsx";
+import { AuthProvider } from "./Components/Context-Api/Auth.jsx";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  
-  <React.StrictMode>
+ReactDOM.render(
+  <AuthProvider>
     <App />
     <ToastContainer position="top-right" autoClose={2000} />
-  </React.StrictMode>
+  </AuthProvider>,
+  document.getElementById("root")
 );
