@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import ContactImage from "../../assets/contactus.jpeg";
 // import { useAuth } from "../../../src/Components/Context-Api/Auth.jsx";
+// <pre>{JSON.stringify(auth, null, 4)}</pre>
+
 const Home = () => {
   // const [auth, setAuth] = useAuth();
   return (
@@ -43,7 +45,6 @@ const Home = () => {
 
 export default Home;
 
-// <pre>{JSON.stringify(auth, null, 4)}</pre>
 
 // <div className="home-container">
 //   {/* Hero Section */}

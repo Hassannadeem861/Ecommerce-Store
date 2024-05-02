@@ -9,6 +9,7 @@ const router = require("express").Router();
 // Create a new registers
 router.post("/register", authController.register);
 router.post("/login", authController.login);
+router.post("/forget-password", authController.forgetPassword);
 
 router.get(
   "/test",

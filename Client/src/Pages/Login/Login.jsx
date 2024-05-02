@@ -26,6 +26,7 @@ const Register = () => {
   });
 
   const [auth, setAuth] = useAuth();
+  console.log("auth :", auth);
 
   const inputHandler = (e) => {
     const { name, value } = e.target;

@@ -134,7 +134,7 @@ const User = db.users;
 //         console.log("userEmail :", userEmail);
 
 //         if (userEmail) {
-//             return res.status(403).json({ message: "User email already exists, please try a different email." });
+//             return res.status(403).json({ message: "Wrong Email and Passsword :" });
 //         }
 
 //         var saltRounds = 10;
@@ -171,10 +171,16 @@ const protectController = async (req, res) => {
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
-    console.log("name, email, password, role", name, email, password, role);
+    const { name, email, password, answer, role } = req.body;
+    console.log(
+      "name, email, password, role, answer =>",
+      name,
+      email,
+      password,
+      role
+    );
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !answer || !role) {
       res.status(403);
       res.send(`required parameters missing, 
                         example request body:
@@ -182,6 +188,7 @@ const register = async (req, res) => {
                         name: "abc name",
                         email: "abc email"
                         password: "abc password"
+                        answer: "abc answer"
                         role: "abc role"
                     } `);
       return;
@@ -194,7 +201,7 @@ const register = async (req, res) => {
 
     if (userEmail) {
       return res.status(403).json({
-        message: "User email already exists, please try a different email.",
+        message: "Wrong Email and Passsword :",
       });
     }
 
@@ -212,6 +219,7 @@ const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      answer,
       role,
     });
 
@@ -285,8 +293,58 @@ const login = async (req, res) => {
   }
 };
 
+// FORGET PASSWORD
+const forgetPassword = async (req, res) => {
+  try {
+    const { email, newPassword, answer } = req.body;
+    console.log("email, newPassword, answer :", req.body);
+
+    if (!email || !newPassword || !answer) {
+      res.status(403);
+      res.send(`required parameters missing, 
+                    example request body:
+                {
+                    email: "abc email"
+                    newPassword: "abc newPassword"
+                    answer: "abc answer"
+                } `);
+      return;
+    }
+
+    const user = await User.findOne({ where: { email, answer } });
+    console.log("user:", user);
+
+    if (!user) {
+      return res.status(403).json({
+        message: "Wrong Email or Passsword",
+      });
+    }
+
+    console.log("Wrong Email or Passsword :", user);
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    console.log("hashedPassword:", hashedPassword);
+
+    // Update the user's password
+    const udatePassword = await User.update(
+      { password: hashedPassword },
+      { where: { id: user.id } }
+    );
+    console.log("udatePassword :", udatePassword);
+
+    return res.status(200).json({
+      message: "Password updated successfully",
+    });
+  } catch (error) {
+    console.log("forgetPassword :", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 module.exports = {
   register,
   login,
   protectController,
+  forgetPassword,
 };

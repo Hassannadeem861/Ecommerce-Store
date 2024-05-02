@@ -18,6 +18,10 @@ const authenticationModel = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false, // Password should be required
         },
+        answer: {
+            type: DataTypes.STRING,
+            allowNull: false, // Password should be required
+        },
         role: {
             type: DataTypes.STRING,
             defaultValue: "user", // Set default role to "user"
