@@ -38,6 +38,7 @@ import Register from "./Pages/Register/Register.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
+import ForgetPassword from "./Pages/Forget-Password/ForgetPassword.jsx";
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/policy" element={<Policy />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />

@@ -19,7 +19,7 @@ const InputField = ({ label, type, name, value, onChange }) => (
   </div>
 );
 
-const Register = () => {
+const Login = () => {
   const [register, setRegister] = useState({
     email: "",
     password: "",
@@ -99,6 +99,17 @@ const Register = () => {
             Check me out
           </label>
         </div>
+        <div className="mb-3">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => {
+              navigate("/forget-password");
+            }}
+          >
+            Forget Password
+          </button>
+        </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
@@ -107,7 +118,7 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
 
 // import React, { useState } from "react";
 // import axios from "axios";

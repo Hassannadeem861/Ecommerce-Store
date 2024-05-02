@@ -154,8 +154,10 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    answer: "",
     role: "",
   });
+  // const [answer, setAnswer] = useState("");
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -180,6 +182,7 @@ const Register = () => {
         name: "",
         email: "",
         password: "",
+        answer: "",
         role: "",
       });
 
@@ -230,6 +233,16 @@ const Register = () => {
           required
           value={register.role}
           onChange={inputHandler}
+        />
+        <InputField
+          label="answer"
+          type="text"
+          name="answer"
+          required
+          value={register.answer}
+          onChange={inputHandler}
+          placeholder="What is your favourite spot"
+          style={{ color: "black" }} // Inline CSS style
         />
         <div className="form-group form-check">
           <input
