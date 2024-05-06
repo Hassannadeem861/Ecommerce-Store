@@ -3,7 +3,7 @@ const db = require("../models");
 const User = db.users;
 
 const authMiddleware = async (req, res, next) => {
-  const token = req.header("x-access-token");
+  const token = req.header("Authorization");
   console.log("token :", token);
 
   if (!token) {

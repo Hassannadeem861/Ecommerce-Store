@@ -18,7 +18,9 @@ router.get(
   authController.protectController
 );
 
-// router.get("/user", authMiddleware, authController.userLogic);
+router.get("/user/dashboard", authMiddleware, (req, res) => {
+  res.status(200).send({ ok: true })
+});
 
 // router.get("/user", authMiddleware, authController.user);
 
