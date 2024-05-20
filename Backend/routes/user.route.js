@@ -18,7 +18,13 @@ router.get(
   authController.protectController
 );
 
+// user dashboard
 router.get("/user/dashboard", authMiddleware, (req, res) => {
+  res.status(200).send({ ok: true })
+});
+
+// admin dashboard
+router.get("/admin/dashboard", authMiddleware, adminMiddleWare, (req, res) => {
   res.status(200).send({ ok: true })
 });
 
