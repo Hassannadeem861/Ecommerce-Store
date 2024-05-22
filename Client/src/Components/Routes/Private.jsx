@@ -29,7 +29,7 @@ const Private = () => {
     useEffect(() => {
         if (auth?.token) authCheck()
     }, [auth?.token]); // Dependency array (optional
-    return ok ? <Outlet /> : <Spinner path=''/>
+    return ok ? <Outlet /> : <Spinner />
 
     return (
         <div>

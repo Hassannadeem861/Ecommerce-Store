@@ -1,19 +1,19 @@
 import React from 'react'
-import AdminDashboard from './AdminDashboard'
+import UserDashboard from './UserDashboard'
 
-const CreateProduct = () => {
+const profile = () => {
     return (
         <div style={{ minHeight: "50vh" }}>
             <div className="row">
                 <div className="col-md-10">
-                    <AdminDashboard />
+                    <UserDashboard />
                 </div>
                 <div>
-                    <h1>CREATE PRODUCT</h1>
+                    <h1>ORDERS</h1>
                 </div>
             </div>
         </div>
     )
 }
 
-export default CreateProduct
+export default profile

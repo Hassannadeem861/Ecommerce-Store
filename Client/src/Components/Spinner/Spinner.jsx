@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const Spinner = ({ path = 'login' }) => {
-    const [count, setCount] = useState(5)
+    const [count, setCount] = useState(3)
     // console.log("local variable :", count);
     const navigate = useNavigate()
     const Location = useLocation()

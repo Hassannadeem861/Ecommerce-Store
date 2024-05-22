@@ -21,6 +21,8 @@ import AdminDashboard from "./Pages/AdminDashbooard/AdminDashboard.jsx";
 import CreateCategory from "./Pages/AdminDashbooard/CreateCategory.jsx";
 import CreateProduct from "./Pages/AdminDashbooard/CreateProduct.jsx";
 import Users from "./Pages/AdminDashbooard/Users.jsx";
+import Orders from "./Pages/UserDashboard/orders.jsx";
+import Profile from "./Pages/UserDashboard/profile.jsx";
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
 
           <Route path="/dashboard" element={<PrivateRoute />} >
             <Route path="user" element={<UserDashboard />} />
+            <Route path="user/profile" element={<Orders />} />
+            <Route path="user/orders" element={<Profile />} />
           </Route>
 
           <Route path="/dashboard" element={<AdminRoute />} >
