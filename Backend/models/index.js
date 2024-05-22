@@ -23,10 +23,9 @@ db.products = require("../models/products-models.js")(sequelize, DataTypes);
 db.users = require("../models/user-model.js")(sequelize, DataTypes);
 db.categorys = require("../models/category-model.js")(sequelize, DataTypes);
 
-db.products.belongsTo(db.categorys, {
-  foreignKey: "CategoryId",
-  as: "Category",
-});
+// Define associations
+db.categorys.hasOne(db.products, { foreignKey: 'categoryId', as: 'products' });
+db.products.belongsTo(db.categorys, { foreignKey: 'categoryId', as: 'categorys' });
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("Drop and re-sync db.");

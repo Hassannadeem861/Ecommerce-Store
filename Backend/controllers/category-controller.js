@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.createCategory = async (req, res) => {
   try {
     const { name } = req.body; // Extracting 'name' from the request body
-    console.log("name =>", name);
+    console.log("name =>", req.body);
 
     if (!name) {
       return res.status(400).json({
@@ -22,7 +22,7 @@ exports.createCategory = async (req, res) => {
 
     if (existingCategory) {
       return res.status(403).json({
-        message: "Category already exists, please try a different category.",
+        message: "Category already exists.",
       });
     }
 
@@ -72,14 +72,13 @@ exports.getAllCategory = (req, res) => {
         ...condition,
         [Op.or]: [
           { name: { [Op.like]: `%${searchQuery}%` } },
-          { name: { [Op.like]: `%${searchQuery}%` } },
+          { price: { [Op.like]: `%${searchQuery}%` } },
         ],
       };
     }
   }
 
   console.log("final condition :", condition);
-
   Category.findAll({ where: condition })
 
     .then((data) => {

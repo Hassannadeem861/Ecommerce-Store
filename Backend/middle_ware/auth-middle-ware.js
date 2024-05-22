@@ -40,7 +40,7 @@ const adminMiddleWare = async (req, res, next) => {
     const user = await User.findByPk(req.user.userId);
     console.log("admin middleware:", user);
     if (user.role !== "admin") {
-      return res.status(401).json({ message: "Unauthorized Access" });
+      return res.status(401).json({ message: "This user is not admin" });
     } else {
       next();
     }

@@ -11,7 +11,7 @@ router.route("/create-category").post(authMiddleware, adminMiddleWare, categoryC
 // GET ALL ROUTE
 router.route("/get-all-category").get(authMiddleware, adminMiddleWare, categoryController.getAllCategory);
 // GET SINGLE ROUTE
-router.route("/single-get-category/:id").get(authMiddleware, adminMiddleWare, categoryController.getSingleCategory);
+router.route("/single-get-category/:id").get(categoryController.getSingleCategory);
 // UPDATE SINGLE ROUTE
 router.route("/single-update-category/:id").put(authMiddleware, adminMiddleWare, categoryController.updateSingleCategory);
 // DELETE SINGLE ROUTE 

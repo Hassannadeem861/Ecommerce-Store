@@ -1,17 +1,18 @@
 const { DataTypes } = require("sequelize");
-
+const Product = require('./products-models')
 const category = (sequelize) => {
   const categoryModel = sequelize.define("category", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        notNull: {
-          msg: "Category is required.",
-        },
-      },
+      // validate: {
+      //   notNull: {
+      //     msg: "Category is required.",
+      //   },
+      // },
     },
+
     // slugify: {
     //   type: DataTypes.STRING,
     //   allowNull: false,
@@ -23,5 +24,8 @@ const category = (sequelize) => {
 
   return categoryModel;
 };
+
+category.hasOne(Product, { foreignKey: 'categoryId', as: 'Product' });
+Profile.belongsTo(category, { foreignKey: 'categoryId', as: 'category' });
 
 module.exports = category;
