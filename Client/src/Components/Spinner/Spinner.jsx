@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-const Spinner = () => {
+const Spinner = ({ path = 'login' }) => {
     const [count, setCount] = useState(5)
     // console.log("local variable :", count);
     const navigate = useNavigate()
@@ -16,12 +16,12 @@ const Spinner = () => {
         // console.log("prevValue :", prevValue);
         // console.log("--prevValue :", --prevValue);
         console.log("interxval :", interval);
-        count === 0 && navigate('/login', {
+        count === 0 && navigate(`/${path}`, {
             state: Location.pathname
         })
         return () => clearInterval(interval)
 
-    }, [count, navigate, Location])
+    }, [count, navigate, Location, path])
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: "center", alignItems: 'center', height: '100vh' }}>
