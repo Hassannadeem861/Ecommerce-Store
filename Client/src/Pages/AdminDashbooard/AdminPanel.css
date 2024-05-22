@@ -1,0 +1,37 @@
+.admin-card {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.list-group-item {
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f0f0f0;
+}
+
+.list-group-item-action {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.list-group-item-action:hover {
+    color: #0056b3;
+}
+
+.content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}

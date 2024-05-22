@@ -2,6 +2,7 @@
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from "./Pages/Home/Home.jsx";
 import About from "./Pages/About/About.jsx";
@@ -17,6 +18,9 @@ import AdminRoute from "./Components/Routes/AdminRoutes.jsx";
 import PrivateRoute from "./Components/Routes/Private.jsx";
 import UserDashboard from "./Pages/UserDashboard/UserDashboard.jsx";
 import AdminDashboard from "./Pages/AdminDashbooard/AdminDashboard.jsx";
+import CreateCategory from "./Pages/AdminDashbooard/CreateCategory.jsx";
+import CreateProduct from "./Pages/AdminDashbooard/CreateProduct.jsx";
+import Users from "./Pages/AdminDashbooard/Users.jsx";
 
 const App = () => {
   return (
@@ -32,6 +36,9 @@ const App = () => {
 
           <Route path="/dashboard" element={<AdminRoute />} >
             <Route path="admin" element={<AdminDashboard />} />
+            <Route path="admin/create-category" element={<CreateCategory />} />
+            <Route path="admin/create-product" element={<CreateProduct />} />
+            <Route path="admin/users" element={<Users />} />
           </Route>
 
 
