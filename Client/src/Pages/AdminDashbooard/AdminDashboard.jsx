@@ -1,6 +1,6 @@
 import React from 'react'
 
-const adminDashboard = () => {
+const AdminDashboard = () => {
     return (
         <div style={{ minHeight: "100vh" }}>
             <h1>adminDashboard</h1>
@@ -8,4 +8,4 @@ const adminDashboard = () => {
     )
 }
 
-export default adminDashboard
+export default AdminDashboard

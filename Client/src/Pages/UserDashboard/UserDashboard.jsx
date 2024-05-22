@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Dashboard = () => {
+const UserDashboard = () => {
     return (
         <div style={{ minHeight: "100vh" }}><h1>user Dashboard</h1></div>
     )
 }
 
-export default Dashboard
+export default UserDashboard

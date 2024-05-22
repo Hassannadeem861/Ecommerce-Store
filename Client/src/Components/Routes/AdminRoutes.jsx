@@ -5,7 +5,7 @@ import axios from 'axios'
 import Spinner from '../Spinner/Spinner.jsx'
 import { toast } from "react-toastify";
 
-const adminRoute = () => {
+const AdminRoute = () => {
     const [ok, setOk] = useState(false)
     const [auth, setAuth] = useAuth()
     console.log("local variable: ", auth);
@@ -38,4 +38,4 @@ const adminRoute = () => {
     )
 }
 
-export default adminRoute
+export default AdminRoute
