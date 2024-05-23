@@ -56,25 +56,25 @@ const ProductsDetails = (sequelize) => {
       // },
     },
 
-    brand: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      // validate: {
-      //   notNull: {
-      //     msg: "quantity is brand.",
-      //   },
-      // },
-    },
+    // brand: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   // validate: {
+    //   //   notNull: {
+    //   //     msg: "quantity is brand.",
+    //   //   },
+    //   // },
+    // },
 
-    inStock: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      // validate: {
-      //   notNull: {
-      //     msg: "quantity is inStock.",
-      //   },
-      // },
-    },
+    // inStock: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   // validate: {
+    //   //   notNull: {
+    //   //     msg: "quantity is inStock.",
+    //   //   },
+    //   // },
+    // },
 
     shipping: {
       type: DataTypes.INTEGER,

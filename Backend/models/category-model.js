@@ -25,7 +25,4 @@ const category = (sequelize) => {
   return categoryModel;
 };
 
-category.hasOne(Product, { foreignKey: 'categoryId', as: 'Product' });
-Profile.belongsTo(category, { foreignKey: 'categoryId', as: 'category' });
-
 module.exports = category;

@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // CREATE PRODUCT
 exports.createProduct = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } = req.body;
+    const { name, description, price, categoryId, quantity, shipping } = req.body;
     console.log(
       "name, description, price, category, quantity,shipping ",
       req.body
@@ -15,7 +15,7 @@ exports.createProduct = async (req, res) => {
       !name ||
       !price ||
       !description ||
-      !category ||
+      !categoryId ||
       !quantity ||
       !shipping
     ) {
@@ -25,7 +25,7 @@ exports.createProduct = async (req, res) => {
           name: "abc name",
           price: "abc price",
           description: "abc description",
-          // category: "abc category",
+          categoryId: "abc categoryId",
           quantity: "abc quantity",
           shipping: "abc shipping",
         },
